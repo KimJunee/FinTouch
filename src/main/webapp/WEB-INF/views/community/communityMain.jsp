@@ -18,13 +18,13 @@
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-		<section
-			style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/communityImg.png'); background-position: center; height:570px; width:99%;">
-
+		<section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/communityImg.png'); background-position: center; height:570px; width:99%;">
 			<div class="container p-5 pt-0" style="margin-top: 380px;">
 				<div class="card-body">
 					<h5 class="mice">
-						<span style="color: #2163E8;">C&nbsp;O&nbsp;M&nbsp;M&nbsp;U&nbsp;N&nbsp;I&nbsp;T&nbsp;Y</span>
+						<span style="color: #2163E8;">
+							C&nbsp;O&nbsp;M&nbsp;M&nbsp;U&nbsp;N&nbsp;I&nbsp;T&nbsp;Y
+						</span>
 					</h5>
 					<h1 class="mice">
 						실시간<span class="mice" style="color: #2163E8;">커뮤니티</span>인기글
@@ -49,6 +49,7 @@
                                         <div class="row g-3 align-items-center justify-content-between mb-3">
                                             <!-- 검색 -->
                                             <div class="col-md-12">
+                                            	<!-- [var : 사용할 변수명] [items : 컬렉션 객체(List, Map)] [begin : 반복 시작 index] [end : 반복 종료] [step : 반복할 때마다 건너뛸 index 갯수] [varStatus : 반복상태를 알 수 있는 변수] -->
 	                                            <c:forEach var="board" items="${list}" begin="0" end="0" step="1" varStatus="status">
 	                                                <form class="rounded position-relative" action="${path}/board/searchList">
 	                                                	<%-- <input type="hidden" id="type" name="type" value="${board.board_list_no}" /> --%>

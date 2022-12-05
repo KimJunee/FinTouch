@@ -37,9 +37,11 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class BoardController {
 	
+	// 게시판 서비스 연결
 	@Autowired
 	private BoardService service;
 	
+	// 리소스 읽어오는 인터페이스(스프링에서 제공하는 기능)
 	@Autowired
 	private ResourceLoader resourceLoader;
 	

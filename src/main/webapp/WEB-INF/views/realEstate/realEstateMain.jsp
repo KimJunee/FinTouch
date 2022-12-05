@@ -670,7 +670,7 @@ path:hover {
         })
         $(document).mousemove(function(e) {
             $('#info-box').css('top', e.pageY - $('#info-box').height() - 1100);
-            $('#info-box').css('left', e.pageX - ($('#info-box').width()) / 2 - 400);
+            $('#info-box').css('left', e.pageX - ($('#info-box').width()) / 2 - 450);
         }).mouseover();
         
 
