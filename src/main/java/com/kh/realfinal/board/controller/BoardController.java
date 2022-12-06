@@ -54,22 +54,24 @@ public class BoardController {
 	
 	// 커뮤니티 메인
 	@GetMapping("/communityMain")
-	public String communityMain(Model model, @RequestParam Map<String, String> param) { //게시판 메인으로 드가자
+	public String communityMain(Model model, @RequestParam Map<String, String> param) { //게시판 메인 가기
 		int page = 1;
+		// Map의 파라미터로 입력받은 값(page)과 같은 값이 있으면 true 리턴
 		if(param.containsKey("page") == true) {
 			try {
 				page = Integer.parseInt(param.get("page"));
 			} catch (Exception e) {}
 		}
 		
-//		PageInfo pageInfo = new PageInfo(page, 20, service.getBoardCount(param), 10);
 		List<Board> list = service.getBoardListMain();
 		List<Board> list1 = new ArrayList<Board>();
 		List<Board> list2 = new ArrayList<Board>();
 		List<Board> list3 = new ArrayList<Board>();
 		List<Board> list4 = new ArrayList<Board>();
+		
 		System.out.println("페이지인포 : " + service.getBoardCount(param));
 		System.out.println("리스트 사이즈 : " + list.size());
+		
 		for(int i = 0; i < list.size(); i++) {
 			if(list.get(i).getBoard_list_no() == 1) {
 				list1.add(list.get(i));

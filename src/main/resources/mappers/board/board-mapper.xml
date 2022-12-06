@@ -62,7 +62,7 @@
 		</if>
 		<!-- WHERE 1=1 참인 경우 -->
 		<if test="writerKeyword != null">
-			AND U.USER_NO LIKE '%'||#{writerKeyword}||'%'
+			AND U.USER_NICKNAME LIKE '%'||#{writerKeyword}||'%'
 		</if>
 		<if test="titleKeyword != null">
 			AND B.BOARD_TITLE LIKE '%'||#{titleKeyword}||'%'

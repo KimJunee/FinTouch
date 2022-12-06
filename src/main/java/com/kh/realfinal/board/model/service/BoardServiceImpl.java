@@ -6,13 +6,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.kh.realfinal.board.model.mapper.BoardMapper;
 import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.board.model.vo.Reply;
@@ -21,14 +19,16 @@ import com.kh.realfinal.common.util.PageInfo;
 @Service
 public class BoardServiceImpl implements BoardService{
 	
+	// 매퍼 연결
 	@Autowired
 	private BoardMapper mapper;
 
 	@Override
-	@Transactional(rollbackFor = Exception.class)
+	@Transactional(rollbackFor = Exception.class) // 모든 예외에 대해 전부 트랜잭션 롤백
 	public int saveBoard(Board board) {
 		int result = 0;
 		System.out.println(board.toString());
+		
 		if(board.getBoard_no() == 0) {
 			result = mapper.insertBoard(board);
 		}else {
@@ -45,7 +45,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public String saveFile(MultipartFile upfile, String savePath) {
 		try {
-			System.out.println("savePath : "+savePath);
+			System.out.println("savePath : " + savePath);
 			File folder = new File(savePath);
 			if(folder.exists() == false) {
 				folder.mkdirs();
@@ -68,19 +68,10 @@ public class BoardServiceImpl implements BoardService{
 	public int getBoardCount(Map<String, String> param) {
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
+		
 		searchMap.put("titleKeyword", searchValue);
 		searchMap.put("board_list_no", param.get("type"));
 		
-//		if(searchValue != null && searchValue.length() > 0) {
-//			String type = param.get("sdarchType");
-//			if(type.equals("board_title")) {
-//				searchMap.put("titleKeyword", searchValue);
-//			} else if(type.equals("board_content")) {
-//				searchMap.put("contentKeyword", searchValue);
-//			} else if(type.equals("user_NickName")) {
-//				searchMap.put("NickNameKeyword", searchValue);
-//			}
-//		}
 		return mapper.selectBoardCount(searchMap);
 	}
 
@@ -135,7 +126,7 @@ public class BoardServiceImpl implements BoardService{
 	@Transactional(rollbackFor =  Exception.class)
 	public Board findByNo(int boardNo) {
 		Board board = mapper.selectBoardByNo(boardNo);
-		board.setBoard_hit(board.getBoard_hit() + 1); // 조회수 늘리는 코드
+		board.setBoard_hit(board.getBoard_hit() + 1); // 조회수 늘리기
 		mapper.updateHit(board);
 		return board;
 	}
