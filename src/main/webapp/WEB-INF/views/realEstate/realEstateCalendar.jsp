@@ -3,21 +3,17 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-
   
 <%@include file="/WEB-INF/views/common/header.jsp" %>
 
 <head>
     <title>FinTouch | FinanceProduct | Detail</title>
     
-    <!-- @@@@@@@@@@@@@@@@@@@@@@ -->
     <!-- calendar -->
     <link href='${path}/resources/resources1b/fullcalendar/lib/main.css' rel='stylesheet' />
     <script src='${path}/resources/resources1b/fullcalendar/lib/main.js'></script>
     
     <!-- fullcalendar css JS -->
-
-
 
 </head>
 
@@ -43,7 +39,6 @@
         font-weight: 700;
     }
 </style>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -186,14 +181,12 @@
                 start: '2020-09-10',
                 color: '#E378A6',
             }]
-
         });
         calendar.render();
     });
 </script> 
 
 <body>
-	
 	<!-- **************** MAIN CONTENT START **************** -->
     <section class="position-relative overflow-hidden" style="background-image:url(${path}/resources/resources1b/images/03_realEstate/03_reales_calendar.jpeg); background-position: center; background-size: cover; height:350px;">
         <div class="bg-overlay bg-transparent opacity-5"></div>
@@ -203,7 +196,6 @@
                 <path d="M0,150 L0,40 Q250,150 500,40 L580,150 Z"></path>
             </svg>
         </figure>
-
         <div class="container z-index-9 position-relative mice">
             <div class="row py-0 align-items-center text-center text-sm-start">
                 <div class="col-sm-12 all-text-white mt-md-0">
@@ -219,7 +211,6 @@
             </div>
         </div>
     </section>
-	
 	<!-- @@@ 본문 시작 @@@ -->
 	<section class="pt-3 pt-lg-5">
 		<div class="container">
@@ -242,7 +233,6 @@
                                 <input type="radio" name="calendar" id="apt_2" value="apt_2" style="margin-left: 15px;" <c:if test="${checkBox eq 'apt_2'}">checked</c:if>> <label for="apt_2">2순위</label>
                                 <input type="radio" name="calendar" id="apt_n" value="apt_n" style="margin-left: 15px;" <c:if test="${checkBox eq 'apt_n'}">checked</c:if>> <label for="apt_n">무순위</label>
                                 <input type="radio" name="calendar" id="apt_c" value="apt_c" style="margin-left: 15px;" <c:if test="${checkBox eq 'apt_c'}">checked</c:if>> <label for="apt_c">취소후재공급</label> )
-
                                 <input type="radio" name="calendar" id="office" value="office" style="margin-left: 60px;" <c:if test="${checkBox eq 'office'}">checked</c:if>> <label for="office" style="margin-right: 60px;">오피스텔</label>
                                 <input type="radio" name="calendar" id="cityhouse" value="cityhouse" <c:if test="${checkBox eq 'cityhouse'}">checked</c:if>> <label for="cityhouse">도시형생활주택</label><br>
                                 <input type="radio" name="calendar" id="rent" value="rent" style="margin-left: 8px;" <c:if test="${checkBox eq 'rent'}">checked</c:if>> <label for="rent" style="margin-right: 60px;">민간임대</label>
@@ -293,21 +283,15 @@
 	                        </tr>
 	                    </table>
 	                    <!-- 유형별 색 안내 끝 -->
-	                    
 						<p style="font-size: 14px;">
 							<i class="bi bi-info-circle"></i> 공급유형별 색상으로 일정을 확인해보세요.
 						</p>
 					</div>
 					<!-- tabEnd -->
-
 					<div id='calendar'></div>
-
 				</div>
 			</section>
-
 		</div>
 	</section>
-
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
-

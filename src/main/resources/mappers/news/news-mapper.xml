@@ -190,5 +190,4 @@
 		SET HIT = #{hit}
 		WHERE NEWS_NO = #{newsNo}
 	</update>
-	
 </mapper>

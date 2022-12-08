@@ -4,15 +4,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import com.kh.realfinal.financialsupervisory.model.vo.FixDeposit;
 import com.kh.realfinal.financialsupervisory.model.vo.FixDepositOption;
 
@@ -135,11 +132,11 @@ public class FixDepositAPI {
 				}
 				System.out.println("pageNo : " + pageNo);
 				if(i != 2) {
-					if(pageNo == 1) { //마지막 페이지
+					if(pageNo == 1) { // 마지막 페이지
 						break;
 					}
 				}else {
-					if(pageNo == 3) { //마지막 페이지
+					if(pageNo == 3) { // 마지막 페이지
 						break;
 					}
 				}

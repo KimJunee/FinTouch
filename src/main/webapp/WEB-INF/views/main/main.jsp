@@ -67,7 +67,7 @@
                                             <div class="row align-items-center g-3 mb-4 ">
                                                 <div class="col-auto ">
                                                     <div class="avatar avatar-lg avatar-img rounded-circle bg-light bg-opacity-50 ">
-                                                        <i class="bi bi-bar-chart-line text-center opacity-60" style="font-size: 40px; text-align: center; margin-left: 10px;"></i>
+                                                        <i class="bi bi-bar-chart-line text-center opacity-60" style="font-size: 40px; text-align: center; margin-left: 11px;"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-8 ">
@@ -80,7 +80,7 @@
                                             <div class="row align-items-center g-3 mb-4  " data-autoplay="false " data-hoverpause="true " data-gutter="0 " data-arrow="true " data-dots="false " data-items="1 ">
                                                 <div class="col-auto ">
                                                     <div class="avatar avatar-lg avatar-img rounded-circle bg-light bg-opacity-50 ">
-                                                        <i class="bi bi-building text-center opacity-70" style="font-size: 40px; text-align: center; margin-left: 10px;"></i>
+                                                        <i class="bi bi-building text-center opacity-70" style="font-size: 40px; text-align: center; margin-left: 12px;"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-8 ">
@@ -92,7 +92,7 @@
                                             <div class="row align-items-center g-3 ">
                                                 <div class="col-auto ">
                                                     <div class=" avatar-lg rounded-circle bg-light bg-opacity-50 ">
-                                                        <i class="fa fa-solid fa-pen-nib text-center opacity-70 " style="font-size: 37px; text-align: center; margin-left: 12px; margin-top: 12px;" src="assets/images/01_main/main_opi_01.jpg "></i>
+                                                        <i class="fa fa-solid fa-pen-nib text-center opacity-70 " style="font-size: 37px; text-align: center; margin-left: 13px; margin-top: 14px;" src="assets/images/01_main/main_opi_01.jpg "></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-8 ">
@@ -313,9 +313,9 @@
                                 <div class="tiny-slider-inner" data-autoplay="true" data-hoverpause="true" data-gutter="24" data-arrow="true" data-dots="false" data-items-sm="1" data-items-xs="1" data-items="2">
                                     <!-- 카드뉴스 시작 -->
                                     <c:if test="${empty listMain}">
-											<div class="d-flex position-relative mb-3">
-												<h6>조회된 카드뉴스가 없습니다.</h6>
-											</div>
+										<div class="d-flex position-relative mb-3">
+											<h6>조회된 카드뉴스가 없습니다.</h6>
+										</div>
 									</c:if>
 									<c:if test="${!empty listMain}">
 									<c:forEach var="cardcutTop" items="${listMain}" begin="0" end="4" step="1" varStatus="status">
@@ -554,23 +554,18 @@
             	</div>
         	</div>
     	</section>
-
-
-<!-- ======================= script 시작 =======================-->
-
-<!-- 모집시작 청약 현재 날짜 -->
-   <script>
-	date = new Date();
-	year = date.getFullYear();
-	month = date.getMonth() + 1;
-	day = date.getDate();
-	document.getElementById("current_date").innerHTML = year + "." + month
-			+ "." + day;
-</script>
-    <!-- =======================오피니언 끝 =======================-->
-	</main>
-	<%@ include file="/WEB-INF/views/common/footerDark.jsp" %>
-  
+	<!-- ======================= script 시작 =======================-->
+	<!-- 모집시작 청약 현재 날짜 -->
+	<script>
+		date = new Date();
+		year = date.getFullYear();
+		month = date.getMonth() + 1;
+		day = date.getDate();
+		document.getElementById("current_date").innerHTML = year + "." + month
+				+ "." + day;
+	</script>
+	    <!-- =======================오피니언 끝 =======================-->
+</main>
+<%@ include file="/WEB-INF/views/common/footerDark.jsp" %>
 </body>
-
 </html>

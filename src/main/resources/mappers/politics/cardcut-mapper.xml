@@ -98,32 +98,34 @@
 	 <select id="selectCardCutList1" resultMap="CardCutMap">
 	 	SELECT CARDCUT_NO, TITLE, LINK, DESCRIPTION, PUBDATE
 		FROM CARDCUT
-		ORDER BY CARDCUT_NO
+		ORDER BY PUBDATE DESC
 	 </select>	
 	 
 	 <!-- 메인 리스트 -->
 	 <select id="selectCardCutMain" resultMap="CardCutMap">
-	 	SELECT CARDCUT_NO, TITLE, LINK, DESCRIPTION, PUBDATE
-		FROM CARDCUT
-		WHERE CARDCUT_NO BETWEEN 1 AND 5
+	 	SELECT * FROM(
+			SELECT CARDCUT_NO, TITLE, LINK, DESCRIPTION, PUBDATE
+			FROM CARDCUT
+			ORDER BY PUBDATE DESC)
+		WHERE ROWNUM BETWEEN 1 AND 5
 	 </select>	
 	 
 	<!-- 댓글 등록 -->
 	<insert id="insertCardCutreply" parameterType="CardCutReply">
-		INSERT INTO CARDCUT_REPLY 
-		(C_REPLY_NO, 
-		C_CARDCUT_NO, 
-		C_REPLY_CONTENT, 
-		C_WRITER_NO, 
-		C_REPLY_REGISTER, 
-		C_REPLY_MODIFY)
-			VALUES(
-				SEQ_C_REPLY_NO.NEXTVAL, 
-				#{cardCutNo},
-				#{c_reply_content},
-				#{c_writer_no}, 
-				SYSDATE, 
-				SYSDATE)
+		INSERT INTO CARDCUT_REPLY (
+			C_REPLY_NO, 
+			C_CARDCUT_NO, 
+			C_REPLY_CONTENT, 
+			C_WRITER_NO, 
+			C_REPLY_REGISTER, 
+			C_REPLY_MODIFY
+		)VALUES(
+			SEQ_C_REPLY_NO.NEXTVAL, 
+			#{cardCutNo},
+			#{c_reply_content},
+			#{c_writer_no}, 
+			SYSDATE, 
+			SYSDATE)
 	</insert>
 	
 	<!-- 댓글 수정 -->
@@ -136,6 +138,5 @@
 	<delete id="deleteCardCutReply" parameterType="int">
 		DELETE CARDCUT_REPLY WHERE C_REPLY_NO = #{c_reply_no} 
 	</delete>
-	 
 	 
 </mapper>

@@ -3,29 +3,23 @@ package com.kh.realfinal.financialStock.api;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import com.kh.realfinal.financialStock.model.vo.Stockprice;
 
 public class StockpriceAPI {
 	
 	public static String key = "PCNxso2TMGeSrjPMsBxvOscmyUmaYllFFoSb%2BN%2BjMnDf4gSitSdIZjC3290UCja4ki92iGwbCXZv6utvCT0IAg%3D%3D";
-	
 	public static String Stockprice_XML_URL = "http://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo";
 
 	public static void main(String[] args) {
 		StockpriceAPI.callStockpriceByXML();
 	}
-
 	
 	public static List<Stockprice> callStockpriceByXML() {
 		List<Stockprice> list = new ArrayList<Stockprice>();
@@ -101,7 +95,6 @@ public class StockpriceAPI {
 						Double lstgStCnt = Double.parseDouble(eElement.getElementsByTagName("lstgStCnt").item(0).getTextContent());
 						Double mrktTotAmt = Double.parseDouble(eElement.getElementsByTagName("mrktTotAmt").item(0).getTextContent());
 						
-						
 						Stockprice sp = new Stockprice(basDt, srtnCd ,isinCd ,itmsNm ,mrktCtg ,clpr ,vs ,fltRt ,mkp      
 						,hipr ,lopr ,trqu ,trPrc ,lstgStCnt,mrktTotAmt);
 					list.add(sp);
@@ -117,5 +110,4 @@ public class StockpriceAPI {
 		}
 		return list;
 	}
-
 }
