@@ -87,13 +87,15 @@
 	
 	<!-- 메인 논설위원 10개 -->
 	<select id="selectEditorialist" resultMap="opinionResultMap" parameterType="map">
-		SELECT *
-		FROM
+		SELECT * FROM
 			(
 			SELECT 
-				OPINIONNO, TITLE, IMAGEURL, COLUMNIST, CONTENT, PUBDATE
-			FROM OPINION
-			ORDER BY PUBDATE
+		    	A.OPINIONNO, A.TITLE, A.IMAGEURL, A.COLUMNIST, A.CONTENT
+			FROM OPINION A
+			WHERE A.PUBDATE = (SELECT MAX(AA.PUBDATE)
+			    FROM OPINION AA
+			    WHERE AA.COLUMNIST = A.COLUMNIST)
+			ORDER BY A.PUBDATE DESC
 			)
 		WHERE ROWNUM <![CDATA[<=]]> 10
 	</select>
