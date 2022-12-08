@@ -86,8 +86,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-body px-0 pt-3" style="overflow: hidden;height: 167px;text-overflow: ellipsis">
-                                <h4 class="card-title mice"><a href="${path}/news/post?newsNo=${bigList.newsNo}" class="btn-link text-reset fw-bold">${bigList.title}</a></h4><br>
+                            <div class="card-body px-0 pt-3" style="overflow: hidden;height: 230px;text-overflow: ellipsis">
+                                <h4 class="card-title mice"><a href="${path}/news/post?newsNo=${bigList.newsNo}" class="btn-link text-reset fw-bold">${bigList.title}</a></h4>
                                 <p class="card-text">${bigList.description}</p>
                             </div>
                         </div>
