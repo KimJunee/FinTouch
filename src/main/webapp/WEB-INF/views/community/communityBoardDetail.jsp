@@ -107,25 +107,25 @@
                             </c:choose>
                                 <img class="avatar avatar-md rounded-circle float-start me-3" src="${path}/resources/resources1b/images/avatar_w3.png" alt="avatar">
                         		<div style="width: 100%;">
-                                <div style="flex-container: space-between;">
-                                    <div class="mb-2" style="display:inline-block">
-                                        <h5 class="m-0 mice">${reply.reply_writer_nickName}</h5>
-                                        <span class="me-3 small"><fmt:formatDate type="both" value="${reply.reply_register}"/></span>
-                                    </div>
-                                    <c:if test="${not empty loginMember && (loginMember.user_id == reply.reply_writer_id)}">
-	                                    <div style="display: inline-block; flex-container: space-between; float: right;">
-		                                    <button id="reply_edit${reply.reply_no}" onclick="editReply(${reply.reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">수정</button>
-		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="do_reply_edit${reply.reply_no}" onclick="doEditReply(${reply.reply_no})">저장</button>
-		                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="cancel_reply_edit${reply.reply_no}" onclick="cancelEditReply(${reply.reply_no})">취소</button>
-		                                    <button id="delete_reply_btn${reply.reply_no}" onclick="deleteReply(${reply.reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">삭제</button>
+	                                <div style="flex-container: space-between;">
+	                                    <div class="mb-2" style="display:inline-block">
+	                                        <h5 class="m-0 mice">${reply.reply_writer_nickName}</h5>
+	                                        <span class="me-3 small"><fmt:formatDate type="both" value="${reply.reply_register}"/></span>
 	                                    </div>
-                                    </c:if>
-                                    <div class="mb-2" style="color:#191a1f">
-                                        <p id="reply_content${reply.reply_no}">${reply.reply_content}</p>
-                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_reply_content${reply.reply_no}">${reply.reply_content}</textarea>
-                                    </div>
-                                </div>
-                            </div>
+	                                    <c:if test="${not empty loginMember && (loginMember.user_id == reply.reply_writer_id)}">
+		                                    <div style="display: inline-block; flex-container: space-between; float: right;">
+			                                    <button id="reply_edit${reply.reply_no}" onclick="editReply(${reply.reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">수정</button>
+			                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="do_reply_edit${reply.reply_no}" onclick="doEditReply(${reply.reply_no})">저장</button>
+			                                    <button style="display:none;font-size:13px; padding:3px 5px" class="btn btn-outline-primary mb-0" id="cancel_reply_edit${reply.reply_no}" onclick="cancelEditReply(${reply.reply_no})">취소</button>
+			                                    <button id="delete_reply_btn${reply.reply_no}" onclick="deleteReply(${reply.reply_no})" class="btn btn-outline-primary mb-0" style="font-size:13px; padding:3px 5px">삭제</button>
+		                                    </div>
+	                                    </c:if>
+	                                    <div class="mb-2" style="color:#191a1f">
+	                                        <p id="reply_content${reply.reply_no}">${reply.reply_content}</p>
+	                                        <textarea class="form-control" style="display:none; resize: none;" id="edit_reply_content${reply.reply_no}">${reply.reply_content}</textarea>
+	                                    </div>
+	                                </div>
+	                            </div>
                             </div>
                         </c:forEach>
                         </div>
@@ -236,7 +236,6 @@
     		$("#main_content").css("height","800px");
     	}
     })
-    
     
 	function editReply(idx){
 		console.log(idx);

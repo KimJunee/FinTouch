@@ -23,6 +23,7 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private BoardMapper mapper;
 
+	// DB에 게시글 저장
 	@Override
 	@Transactional(rollbackFor = Exception.class) // 모든 예외에 대해 전부 트랜잭션 롤백
 	public int saveBoard(Board board) {
@@ -37,11 +38,13 @@ public class BoardServiceImpl implements BoardService{
 		return result;
 	}
 
+	// DB에 댓글 저장
 	@Override
 	public int saveReply(Reply reply) {
 		return mapper.insertReply(reply);
 	}
 
+	// DB에 파일 저장
 	@Override
 	public String saveFile(MultipartFile upfile, String savePath) {
 		try {
@@ -64,6 +67,7 @@ public class BoardServiceImpl implements BoardService{
 		}
 	}
 
+	// 검색 갯수
 	@Override
 	public int getBoardCount(Map<String, String> param) {
 		Map<String, String> searchMap = new HashMap<String, String>();
@@ -75,6 +79,7 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.selectBoardCount(searchMap);
 	}
 
+	// 검색 리스트
 	@Override
 	public List<Board> getBoardList(PageInfo pageInfo, Map<String, String> param) {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
@@ -82,46 +87,38 @@ public class BoardServiceImpl implements BoardService{
 		
 		Map<String, String> searchMap = new HashMap<String, String>();
 		String searchValue = param.get("searchValue");
+		
 		searchMap.put("titleKeyword", searchValue);
 		searchMap.put("board_list_no", param.get("type"));
-		
 		searchMap.put("sort", param.get("sort"));
-//		if(searchValue != null && searchValue.length() > 0) {
-//			String type = param.get("searchType");
-//			if(type.equals("board_title")) {
-//				searchMap.put("titleKeyword", searchValue);
-//			} else if(type.equals("board_content")) {
-//				searchMap.put("contentKeyword", searchValue);
-//			} else if(type.equals("user_NickName")) {
-//				searchMap.put("NickNameKeyword", searchValue);
-//			} 
-//		}
+
 		return mapper.selectBoardList(rowBounds, searchMap);
 	}
 	
-	// 커뮤니티 메인으로 들어갈때 쓰는 코드
+	// 커뮤니티 메인 - 게시글 출력
 	@Override
 	public List<Board> getBoardListMain() { 
 		return mapper.selectBoardListMain();
 	}
 	
-	// 사이드 커뮤니티 인기글 : 부동산메인 2개
+	// 사이드 커뮤니티 인기글 : 부동산메인 2개 게시글 출력
 	@Override
 	public List<Board> getSideBoardForEstate(Map<String, Object> param) {
 		return mapper.sideBoardForEstate(param);
 	}
 
-	// 사이드 커뮤니티 인기글 : 국회의원현황 6개
+	// 사이드 커뮤니티 인기글 : 국회의원현황 6개 게시글 출력
 	@Override
 	public List<Board> getSideBoardForPolitics(Map<String, Object> param) {
 		return mapper.sideBoardForPolitics(param);
 	}
 	
-	// 사이드 커뮤니티 인기글 : 메인, 커뮤니티상세 6개
+	// 사이드 커뮤니티 인기글 : 메인, 커뮤니티상세 6개 게시글 출력
 	public List<Board> getSideBoard() {
 		return mapper.sideBoard();
 	}
 	
+	// 게시글 보기
 	@Override
 	@Transactional(rollbackFor =  Exception.class)
 	public Board findByNo(int boardNo) {
@@ -131,6 +128,7 @@ public class BoardServiceImpl implements BoardService{
 		return board;
 	}
 
+	// 파일 삭제
 	@Override
 	public void deleteFile(String filePath) {
 		System.out.println(filePath);
@@ -140,6 +138,7 @@ public class BoardServiceImpl implements BoardService{
 		}
 	}
 
+	// 글 삭제
 	@Override
 	@Transactional(rollbackFor =  Exception.class)
 	public int deleteBoard(int no, String rootPath) {
@@ -148,15 +147,16 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.deleteBoard(no);
 	}
 
+	// 댓글 삭제
 	@Override
 	@Transactional(rollbackFor =  Exception.class)
 	public int deleteReply(int no) {
 		return mapper.deleteReply(no);
 	}
 
+	// 댓글 수정
 	@Override
 	public int editReply(Reply reply) {
 		return mapper.editReply(reply);
 	}
-
 }

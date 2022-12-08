@@ -4,16 +4,12 @@ import lombok.Getter;
 
 @Getter
 public class PageInfo {
-	private int currentPage;
-	
-	private int pageLimit;
-	
-	private int listCount;
-	
-	private int listLimit;	
+	private int currentPage;	// 현재 페이지
+	private int pageLimit;		// 한 번에 표시할 페이지 개수
+	private int listCount;		// 전체 리스트의 수
+	private int listLimit;		// 한 페이지에 표시될 리스트의 수
 	
 	/**
-	 * 
 	 * @param currentPage 현재 페이지
 	 * @param pageLimit 한 페이지에 보여질 페이지의 수 
 	 * @param listCount 전체 리스트의 수
@@ -26,9 +22,7 @@ public class PageInfo {
 		this.listLimit = listLimit;
 	}
 	
-	/** 	
-	 * @return 전체 페이지 중 가장 마지막 페이지
-	 */
+	// @return 전체 페이지 중 가장 마지막 페이지
 	public int getMaxPage() {
 		/*
 		 	listCount = 100, listLimit = 10
@@ -39,13 +33,11 @@ public class PageInfo {
 		 	110 / 10 = 11.0		=> 11페이지
 		 	111 / 10 = 11.1		=> 12페이지
 		 */
+		// Math.ceil : 소수점이 있으면 값 올림
 		return (int)Math.ceil((double)this.listCount / this.listLimit);
 	}
 	
-	/**
-	 * 
-	 * @return 페이징 된 페이지 중 시작 페이지
-	 */
+	// @return 페이징 된 페이지 중 시작 페이지
 	public int getStartPage() {
 		/*	
 			< 1 2 3 4 5 6 7 8 9 10 >
@@ -66,55 +58,33 @@ public class PageInfo {
 		return (this.pageLimit * ((this.currentPage - 1) / this.pageLimit)) + 1;
 	}
 
-	/**
-	 * 
-	 * @return 페이징 된 페이지 중 마지막 페이지
-	 */ 
+	// @return 페이징 된 페이지 중 마지막 페이지
 	public int getEndPage() {
 		// 10, 20, 30, 40, .... 
-		
 		int endPage = getStartPage() + this.pageLimit - 1;
-		
 		return endPage > getMaxPage() ? getMaxPage() : endPage;
 	}	
-	
 
-	/**
-	 * 
-	 * @return 이전 페이지
-	 */ 
+	// @return 이전 페이지
 	public int getPrevPage() {
 		int prevPage = this.getCurrentPage() - 1;
-		
 		return prevPage < 1 ? 1 : prevPage;
 	}
 	
-	/**
-	 * 
-	 * @return 다음 페이지
-	 */ 
+	// @return 다음 페이지
 	public int getNextPage() {
 		int nextPage = this.getCurrentPage() + 1;
-		
 		return nextPage > getMaxPage() ? getMaxPage() : nextPage;
 	}
 	
-	/**
-	 * 
-	 * @return 페이지의 시작 리스트 
-	 */ 	
+	// @return 페이지의 시작 리스트 
 	public int getStartList() {
 		return (this.getCurrentPage() - 1) * this.listLimit + 1;
 	}
 	
-	/**
-	 * 
-	 * @return 페이지의 마지막 리스트
-	 */ 	
+	// @return 페이지의 마지막 리스트
 	public int getEndList() {
 		int endList = this.getStartList() + this.listLimit - 1;
-		
 		return endList > this.listCount ? this.listCount : endList;
 	}
 }
-

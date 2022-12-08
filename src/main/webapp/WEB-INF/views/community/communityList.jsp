@@ -50,7 +50,6 @@
     	justify-content: space-between;
     }
     /* 글쓰기 버튼 정렬 끝 */
-    
 </style>
 
 <head>
@@ -64,21 +63,21 @@
 <%@ include file="/WEB-INF/views/common/headerWhite.jsp" %>
     <main>
         <!-- ============ 메뉴소개 시작 ============ -->
-        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/communityImg.png'); background-position: center; height:570px; width:99%;">
-        
-        </section>
+        <section style="background-image:url('${path}/resources/resources1b/images/avatar/fintouch/communityImg.png'); background-position: center; height:570px; width:99%;"></section>
         <!-- ============ 메뉴소개 끝 ============ -->
+        
         <!-- ======================= 커뮤니티 메인 시작 -->
         <section class="py-4mb-5" style="margin-top: -60px;">
             <div class="container">
                 <div class="row g-4" style="margin-top:-150px;">
 	                <c:if test="${not empty param.searchValue}">		        	
-		                <h1 class="mice">검색하신 "<span class="mice" style="color:#2163E8;"><c:out value="${param.searchValue}" /></span>"에 대한 결과입니다.</h1>
+		                <h1 class="mice">검색하신 "<span class="mice" style="color:#2163E8;"><c:out value="${param.searchValue}"/></span>"에 대한 결과입니다.</h1>
            			</c:if>
                 	<c:if test="${board_list_no == 1}">
                 		<div class="wirtebutton" style="margin-top:10px;">
 	                		<div class="col-md-8 ">
-	                			<a href="${path}/board/list?type=1" class="badge text-bg-primary" style="width: 100px; margin-bottom: 5px;"><i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
+	                			<a href="${path}/board/list?type=1" class="badge text-bg-primary" style="width: 100px; margin-bottom: 5px;">
+	                			<i class="fas fa-circle me-2 small fw-bold"></i>Politics</a>
 							    <h1 class="mt-2 mice" style="margin-left:-12px;">&nbsp;정치<span style="color:#2163E8;">Talk</span></h1>
                     		</div>
                    			<div class="col-md-4 " style="margin-left: -20px;">

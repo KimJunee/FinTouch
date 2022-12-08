@@ -6,7 +6,6 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-<!-- 되나! -->
 <head>
     <title>FinTouch | Community</title>
     <!-- Favicon -->

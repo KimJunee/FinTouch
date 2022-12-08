@@ -5,15 +5,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import com.kh.realfinal.news.model.vo.News;
 
 public class NewsNationalRss {
@@ -32,31 +29,35 @@ public class NewsNationalRss {
 	public static List<News> callNewsEconomyRssByXML() {
 		List<News> list = new ArrayList<News>();
 
+		// URL 가공
 		StringBuilder urlBuilder = new StringBuilder(XML_URL);
 
+		// URL을 HTTP객체를 통해 요청하는 코드 시작
 		try {
 			URL url = new URL(urlBuilder.toString());
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/xml");
 
-			int code = conn.getResponseCode();
+			int code = conn.getResponseCode();	// 요청부
 			System.out.println("Response Code : " + code);
 			if (code < 200 || code >= 300) {
 				System.out.println("페이지가 잘못되었습니다.");
 				return null;
 			}
+			// URL을 HTTP객체를 통해 요청하는 코드 끝
 
+			// 페이지 Parsing부(해석부) 시작
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document doc = db.parse(conn.getInputStream());
+			Document doc = db.parse(conn.getInputStream());	// xml부를 가져와 파싱할 준비 완료!
 
 			// root tag
 			doc.getDocumentElement().normalize();
 
 			System.out.println("Root Element : " + doc.getDocumentElement().getNodeName());
 
-			NodeList nList = doc.getElementsByTagName("item");
+			NodeList nList = doc.getElementsByTagName("item");	// 태그를 통해 node를 가져올수 있는 메소드
 			System.out.println("news 수 : " + nList.getLength());
 
 			for (int i = 1; i < nList.getLength(); i++) {
@@ -65,16 +66,6 @@ public class NewsNationalRss {
 
 				if (node.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) node;
-
-//					int lowNo = Integer.parseInt(eElement.getElementsByTagName("BILL_NO").item(0).getTextContent());
-//					String rstProposer = eElement.getElementsByTagName("RST_PROPOSER").item(0).getTextContent();
-//					int age = Integer.parseInt(eElement.getElementsByTagName("AGE").item(0).getTextContent());
-//					String billName = eElement.getElementsByTagName("BILL_NAME").item(0).getTextContent();
-//					String proposer = eElement.getElementsByTagName("PROPOSER").item(0).getTextContent();
-//					String committee = eElement.getElementsByTagName("COMMITTEE").item(0).getTextContent();
-//					String proposeDt = eElement.getElementsByTagName("PROPOSE_DT").item(0).getTextContent();
-//					String procResult = eElement.getElementsByTagName("PROC_RESULT").item(0).getTextContent();
-//					String detailLink = eElement.getElementsByTagName("DETAIL_LINK").item(0).getTextContent();
 
 					String title =  eElement.getElementsByTagName("title").item(0).getTextContent();
 					String link =  eElement.getElementsByTagName("link").item(0).getTextContent();
@@ -89,6 +80,8 @@ public class NewsNationalRss {
 					list.add(news);
 				}
 			}
+			// 페이지 Parsing부(해석부) 끝
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

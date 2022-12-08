@@ -69,9 +69,6 @@ public class BoardController {
 		List<Board> list3 = new ArrayList<Board>();
 		List<Board> list4 = new ArrayList<Board>();
 		
-		System.out.println("페이지인포 : " + service.getBoardCount(param));
-		System.out.println("리스트 사이즈 : " + list.size());
-		
 		for(int i = 0; i < list.size(); i++) {
 			if(list.get(i).getBoard_list_no() == 1) {
 				list1.add(list.get(i));
@@ -86,12 +83,11 @@ public class BoardController {
 				list4.add(list.get(i));
 			}
 		}
-
-		model.addAttribute("list",list);
-		model.addAttribute("list1",list1);
-		model.addAttribute("list2",list2);
-		model.addAttribute("list3",list3);
-		model.addAttribute("list4",list4);
+		model.addAttribute("list", list);
+		model.addAttribute("list1", list1);
+		model.addAttribute("list2", list2);
+		model.addAttribute("list3", list3);
+		model.addAttribute("list4", list4);
 		return "/community/communityMain";
 	}
 	
@@ -111,12 +107,11 @@ public class BoardController {
 		PageInfo pageInfo = new PageInfo(page, 10, service.getBoardCount(param), 20);
 		List<Board> list = service.getBoardList(pageInfo, param);
 		
-		model.addAttribute("list",list);
+		model.addAttribute("list", list);
 		model.addAttribute("board_list_no", param.get("type"));
-		model.addAttribute("param",param);
-		model.addAttribute("pageInfo",pageInfo);
+		model.addAttribute("param", param);
+		model.addAttribute("pageInfo", pageInfo);
 		return "/community/communitySearchList";
-		
 	}
 	
 	// 커뮤니티 타입별 목록
@@ -137,10 +132,10 @@ public class BoardController {
 		PageInfo pageInfo = new PageInfo(page, 20, service.getBoardCount(param), 20);
 		List<Board> list = service.getBoardList(pageInfo, param);
 		
-		model.addAttribute("list",list);
+		model.addAttribute("list", list);
 		model.addAttribute("board_list_no", param.get("type"));
-		model.addAttribute("param",param);
-		model.addAttribute("pageInfo",pageInfo);
+		model.addAttribute("param", param);
+		model.addAttribute("pageInfo", pageInfo);
 		return "/community/communityList";
 	}
 	
@@ -177,7 +172,7 @@ public class BoardController {
 		log.info("게시글 작성 페이지 가기");
 		System.out.println("그대이름은 파람파람파람 : " + param.toString());
 		
-		model.addAttribute("param",param);
+		model.addAttribute("param", param);
 		return "community/communityBoardPost";
 	}
 	
@@ -203,7 +198,7 @@ public class BoardController {
 		int result = service.saveBoard(board);
 		if(result > 0) {
 			model.addAttribute("msg", "게시글 작성이 정상적으로 성공하였습니다.");
-			model.addAttribute("location", "/board/BoardDetail?board_no="+board.getBoard_no()); // 해당 게시글 가기! 우선 임시로 게시글 목록
+			model.addAttribute("location", "/board/BoardDetail?board_no=" + board.getBoard_no()); // 해당 게시글 가기!
 		}else {
 			model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
 			model.addAttribute("location", "/community/communityMain");	// 게시판 메인 가기!
@@ -228,7 +223,7 @@ public class BoardController {
 		}else {
 			model.addAttribute("msg", "리플 작성에 실패하였습니다.");
 		}
-		model.addAttribute("location", "/board/BoardDetail?board_no="+ reply.getBoard_no());
+		model.addAttribute("location", "/board/BoardDetail?board_no=" + reply.getBoard_no());
 		return "/common/msg";
 	}
 	
@@ -294,10 +289,10 @@ public class BoardController {
 				downName = new String(oriname.getBytes("UTF-8"), "ISO-8859-1"); // 크롬
 			}
 			return ResponseEntity.ok()
-					.header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=\"" + downName + "\"")
-					.header(HttpHeaders.CONTENT_LENGTH, String.valueOf(resource.contentLength()))
-					.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_OCTET_STREAM.toString())
-					.body(resource);
+				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=\"" + downName + "\"")
+				.header(HttpHeaders.CONTENT_LENGTH, String.valueOf(resource.contentLength()))
+				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_OCTET_STREAM.toString())
+				.body(resource);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -312,7 +307,7 @@ public class BoardController {
 		Board board = service.findByNo(boardNo);
 		
 		if(loginMember.getUser_no() == board.getWriter_no()) {
-			model.addAttribute("board",board);
+			model.addAttribute("board", board);
 			return "community/communityBoardUpdate";
 		}else {
 			model.addAttribute("msg", "잘못된 접근입니다.");

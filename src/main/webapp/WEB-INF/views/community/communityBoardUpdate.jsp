@@ -113,7 +113,7 @@
                                                     <label class="w-100" style="cursor:pointer;">
 														<span> 
 															<input class="form-control stretched-link" type="file" name="upfile" id="upfile" style="display:none">
-															<label class="form-control stretched-link" for="upfile" id="upfile_label" >${board.board_originalFileName ne null ? board.board_originalFileName : '&nbsp;'} </label>
+															<label class="form-control stretched-link" for="upfile" id="upfile_label">${board.board_originalFileName ne null ? board.board_originalFileName : '&nbsp;'}</label>
 														</span>
 													</label>
                                                 </div>
@@ -141,10 +141,7 @@
 			var filename = this.files[0].name;
 			$("#upfile_label").text(filename);
 		})	
-		
-		
 	});
-	
 	
 	</script>
     

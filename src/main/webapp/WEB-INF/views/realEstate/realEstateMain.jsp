@@ -368,9 +368,6 @@
                                    <div style="position: absolute; left: 160px; top: 370px;">광주광역시</div>
                                    <div style="position: absolute; left: 230px; top: 400px;">전라남도</div>
                                    <div style="position: absolute; left: 180px; top: 540px;">제주도</div>
-                                   
-                                   
-                                     
                                 </g>
                             </svg>
 						</div>
@@ -479,7 +476,6 @@
 									</div>
 								</div>
 							</div>
-							
 						</div>
 					</div>
 					<!-- 지역별 청약 footer -->
@@ -534,34 +530,33 @@
 									</c:if>
 									
 									<c:if test="${!empty mainList}">
-											<c:forEach var="RealEstateList" items="${mainList}" varStatus="status" begin="1" end="10">
-												<tr>
-													
-													<td>
-														<c:out value="${RealEstateList.house_secd_nm}"/>
-													</td>
-													<td>
-														<a href="${path}/realEstate/calendar" style="color:black"><c:out value="${RealEstateList.house_nm}"/></a>
-													</td>
-													<td>
-														<c:out value="${RealEstateList.rcrit_pblanc_de}"/>
-													</td>
-													
-												<c:if test="${RealEstateList.hmpg_adres == 'null'}">
-													<td>
-														<i class="bi bi-house-door-fill me-2 fw-bold "></i>-
-													</td>
-												</c:if>
-												<c:if test="${RealEstateList.hmpg_adres ne 'null'}">
-													<td>
-														<a href="${RealEstateList.hmpg_adres}"
-														class="badge bg-secondary bg-opacity-75 text-white mb-2">
-														<i class="bi bi-house-door-fill me-2 fw-bold "></i>${RealEstateList.hmpg_adres}</a>
-													</td>
-												</c:if>
-												</tr>
-											</c:forEach>
-										</c:if>									
+										<c:forEach var="RealEstateList" items="${mainList}" varStatus="status" begin="1" end="10">
+											<tr>
+												<td>
+													<c:out value="${RealEstateList.house_secd_nm}"/>
+												</td>
+												<td>
+													<a href="${path}/realEstate/calendar" style="color:black"><c:out value="${RealEstateList.house_nm}"/></a>
+												</td>
+												<td>
+													<c:out value="${RealEstateList.rcrit_pblanc_de}"/>
+												</td>
+												
+											<c:if test="${RealEstateList.hmpg_adres == 'null'}">
+												<td>
+													<i class="bi bi-house-door-fill me-2 fw-bold "></i>-
+												</td>
+											</c:if>
+											<c:if test="${RealEstateList.hmpg_adres ne 'null'}">
+												<td>
+													<a href="${RealEstateList.hmpg_adres}"
+													class="badge bg-secondary bg-opacity-75 text-white mb-2">
+													<i class="bi bi-house-door-fill me-2 fw-bold "></i>${RealEstateList.hmpg_adres}</a>
+												</td>
+											</c:if>
+											</tr>
+										</c:forEach>
+									</c:if>									
 								</tbody>
 								<!-- Table body END -->
 							</table>
@@ -588,8 +583,6 @@
 
 <!-- =======================섹션2: 청약 메인 끝 =======================-->
 <!-- **************** MAIN CONTENT END **************** -->
-
-
 
 <!-- ======================= script 시작 =======================-->
 
@@ -628,10 +621,6 @@ path:hover {
 }
 </style>
 
-
-
-
-
 <!-- 지도 : 청약 일정 지역 -->
 <script>
         k_name = {
@@ -655,7 +644,6 @@ path:hover {
         }
 
         var confirmed = ${json};
-        
 
 		var json1 = ${json1};
         [].forEach.call(document.querySelectorAll('path.land'), function(item) {
@@ -673,7 +661,6 @@ path:hover {
             $('#info-box').css('left', e.pageX - ($('#info-box').width()) / 2 - 450);
         }).mouseover();
         
-
         [].forEach.call(document.querySelectorAll('path.land'), function(item) {
             item.addEventListener('click', function() {
             	
@@ -717,10 +704,8 @@ path:hover {
             document.getElementById('contents').innerHTML = html;
             });
         })
-        
     </script>
     
-
  <!-- ${json} -->
 <!-- 지도 : 청약 일정 상세 
 <script>
@@ -739,11 +724,8 @@ path:hover {
     </script>
     -->
 
-
 <!-- ======================= script 끝 =======================-->
 <%-- ${json1} --%>
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
-
 </body>
-
 </html>
