@@ -77,14 +77,12 @@
 	<!-- 오피니언 메인 컬럼니스트 -->
 	<select id="selectEditorialistAll" resultMap="opinionResultMap" parameterType="map">
 		SELECT 
-			A.COLUMNIST, 
-			A.OPINIONNO, 
-			A.IMAGEURL
-		 FROM OPINION A
-		 WHERE A.OPINIONNO = (SELECT MAX(AA.OPINIONNO)
-		                      FROM OPINION AA
-		                      WHERE AA.COLUMNIST = A.COLUMNIST)
-		 ORDER BY A.COLUMNIST
+		    A.OPINIONNO, A.TITLE, A.IMAGEURL, A.COLUMNIST, A.CONTENT
+		FROM OPINION A
+		WHERE A.PUBDATE = (SELECT MAX(AA.PUBDATE)
+		    FROM OPINION AA
+		    WHERE AA.COLUMNIST = A.COLUMNIST)
+		ORDER BY A.PUBDATE DESC
 	</select>
 	
 	<!-- 메인 논설위원 10개 -->
