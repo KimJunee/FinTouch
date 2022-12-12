@@ -2,7 +2,6 @@ package com.kh.realfinal.mypageBoard.model.controller;
 
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,13 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
-
 import com.kh.realfinal.board.model.vo.Board;
 import com.kh.realfinal.board.model.vo.Reply;
 import com.kh.realfinal.common.util.PageInfo;
 import com.kh.realfinal.member.model.vo.Member;
 import com.kh.realfinal.mypageBoard.model.service.MypageBoardService;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -57,8 +54,7 @@ public class MypageBoardController {
 //		for (Board board : list) {
 //			System.out.println("boardList : "+board.toString());
 //		}
-//		
-//		System.out.println("나 누구 : " + loginMember);
+//		System.out.println("나 누구야 : " + loginMember);
 		System.out.println("내 글인데 검색 이거야 : " + param.toString());
 		model.addAttribute("list",list);
 		model.addAttribute("board_list_no", param.get("type"));
@@ -87,8 +83,7 @@ public class MypageBoardController {
 //			System.out.println("boardList : "+board.toString());
 //		}
 //		
-//		System.out.println("나 누구 : " + loginMember);
-		
+//		System.out.println("나 누구야 : " + loginMember);
 		model.addAttribute("list",list);
 		model.addAttribute("board_list_no", param.get("type"));
 		model.addAttribute("param",param);
@@ -96,7 +91,4 @@ public class MypageBoardController {
 		log.info("마이페이지 내 댓글목록 가기!");
 		return "mypage/mypageReply";
 	}
-	
-	// 마이페이지 - 내가 쓴 댓글 목록
-	
 }
