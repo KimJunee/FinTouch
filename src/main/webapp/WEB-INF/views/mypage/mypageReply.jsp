@@ -116,10 +116,10 @@
 	                                </li>
 	                                <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" step="1" varStatus="status">
 	                                	<c:if test="${pageInfo.currentPage == status.current}">
-	                                  <li class="page-item active"><a class="page-link">${status.current}</a></li>                                    		
+	                                  		<li class="page-item active"><a class="page-link">${status.current}</a></li>                                    		
 	                                	</c:if>
 	                                	<c:if test="${pageInfo.currentPage != status.current}">
-	                                  <li class="page-item"><a onclick="movePage('${path}/MypageBoard/myReply?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
+	                                  		<li class="page-item"><a onclick="movePage('${path}/MypageBoard/myReply?page=${status.current}');" class="page-link">${status.current}</a></li>                                            	
 	                                	</c:if>                                         
 	                                </c:forEach>
 	                                <li class="page-item">
