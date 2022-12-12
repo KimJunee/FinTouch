@@ -7,8 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor	// 기본 생성자
+@AllArgsConstructor	// 전체 필드 생성자
 public class Board {
 	private int         board_no;                // 게시글번호
 	private int         user_no;                 // 사용자번호(외래키)

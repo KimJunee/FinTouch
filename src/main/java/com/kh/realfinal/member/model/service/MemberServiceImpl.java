@@ -96,8 +96,4 @@ public class MemberServiceImpl implements MemberService{
 		map.put("newPwd", passwordEncoder.encode(user_password));
 		return mapper.updatePwd(map);
 	}
-
-	
-	
-	
 }

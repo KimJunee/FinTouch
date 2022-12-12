@@ -100,7 +100,6 @@ public class KakaoService {
 			System.out.println("체크 포인트3");
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream())); //이부분 오류인듯
 			System.out.println("체크 포인트3.5");
-			
 			System.out.println("체크 포인트4 br : " + br);
 			String line = "";
 			String result = "";
@@ -150,7 +149,6 @@ public class KakaoService {
 //             conn.setRequestMethod("POST");
 //             conn.setDoOutput(true);
 //
-//
 //             // buffer 스트림 객체 값 셋팅 후 요청
 //             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
 //             StringBuilder sb = new StringBuilder();
@@ -173,7 +171,6 @@ public class KakaoService {
 //             JsonParser parser = new JsonParser();
 //             JsonElement element = parser.parse(result);
 //
-//
 //             // 토큰 값 저장 및 리턴
 //             access_token = element.getAsJsonObject().get("access_token").getAsString();
 //             refresh_token = element.getAsJsonObject().get("refresh_token").getAsString();
@@ -183,7 +180,6 @@ public class KakaoService {
 //         } catch (IOException e) {
 //             e.printStackTrace();
 //         }
-//
 //         return access_token;
 //     }
 //
@@ -210,7 +206,6 @@ public class KakaoService {
 //                     result += br_line;
 //                 }
 //                System.out.println("response:" + result);
-//
 //
 //                 JsonParser parser = new JsonParser();
 //                 JsonElement element = parser.parse(result);

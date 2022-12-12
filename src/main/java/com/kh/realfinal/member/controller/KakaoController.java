@@ -52,15 +52,12 @@ public class KakaoController {
 		System.out.println("###nickname#### : " + userInfo.getUser_name());
 		System.out.println("###email#### : " + userInfo.getUser_email());
 		
-		
-		
 		model.addAttribute("loginMember", userInfo);
 		model.addAttribute("msg", "카카오 로그인이 완료 되었습니다.");
 		model.addAttribute("location", "/main.do");
 		
 		return "/common/msg";
 	}
-	
 
 //    @GetMapping("/kakao/callback")
 //    public String redirectkakao(Model model, @RequestParam String code, HttpSession session) throws IOException {

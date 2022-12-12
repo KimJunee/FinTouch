@@ -8,7 +8,7 @@
 <html lang="ko">
 
 <head>
-    <title>FinTouch | News | Main</title>
+    <title>FinTouch | News</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="${path}/resources/resources1b/images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>   
