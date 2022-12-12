@@ -6,8 +6,6 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-
-
  
 <head>
     <title>FinTouch | Politics | CardCut</title>
@@ -21,7 +19,7 @@
 		<!-- **************** MAIN CONTENT START **************** -->
 		<main>
 		    <section class="bg-dark-overlay-4" style="background-image:url('${path}/resources/resources1b/images/04_politics/01_cardcut/bluehouse.png'); 
-		        background-position: center left; background-size: cover;  ">
+		        background-position: center left; background-size: cover;">
 		          <div class="container ">
                 <div class="row ">
                     <div class="col-lg-8 py-md-5 my-lg-0 ">
@@ -32,41 +30,35 @@
                 </div>
             </div>
         </section>
-		    <!-- =======================
-		Main START -->
+	    <!-- ======================= Main START -->
 		<section class="pt-5 pb-0 mb-0 mt-3">
 			<div class="container">
 				<div class="row">
 					<c:if test="${!empty topList}">
 						<c:forEach var="cardcutTop" items="${topList}" begin="0" end="2" step="1" varStatus="status">
-								<div class="col-sm-6 col-lg-4">
-									<div class="card mb-4">
-										<!-- Card img -->
-											<div class="card-fold position-relative">
-														<img class="card-img"
-															src="${cardcutTop.images[0]}"
-															alt="Card image" style="height: 280px;">
-											</div>
-											<div class="card-body px-0 pt-3">
-												<h4 class="card-title mice">
-													<a href="${path}/politics/cardCutDetail?cardCutNo=${cardcutTop.cardCutNo}"
-														class="btn-link text-reset stretched-link fw-bold">${cardcutTop.title}</a>
-												</h4>
-												<!-- Card info -->
-												<ul
-													class="nav nav-divider align-items-center text-uppercase small">
-													<li class="nav-item"><a href="#"
-														class="nav-link text-reset btn-link"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" dateStyle="full" value="${cardcutTop.pubDate}"/> </a></li>
-												</ul> 
-											</div>
+							<div class="col-sm-6 col-lg-4">
+								<div class="card mb-4">
+									<!-- Card img -->
+									<div class="card-fold position-relative">
+										<img class="card-img" src="${cardcutTop.images[0]}" alt="Card image" style="height: 280px;">
+									</div>
+									<div class="card-body px-0 pt-3">
+										<h4 class="card-title mice">
+											<a href="${path}/politics/cardCutDetail?cardCutNo=${cardcutTop.cardCutNo}" class="btn-link text-reset stretched-link fw-bold">${cardcutTop.title}</a>
+										</h4>
+										<!-- Card info -->
+										<ul class="nav nav-divider align-items-center text-uppercase small">
+											<li class="nav-item"><a href="#" class="nav-link text-reset btn-link">
+												<fmt:formatDate pattern="yyyy. MM. dd. HH:mm" dateStyle="full" value="${cardcutTop.pubDate}"/> </a></li>
+										</ul> 
 									</div>
 								</div>
-							</c:forEach>
-						</c:if>
+							</div>
+						</c:forEach>
+					</c:if>
 				</div>
 			</div>
 		</section>
-
 		<section class="position-relative pt-0 mb-5">
 		        <div class="container">
 		            <div class="row">
@@ -86,21 +78,18 @@
 									 <form action="${path}/politics/cardCut">
 										 <input type="hidden" name="cardCut" value="${cardcut.searchTitle}" > 
 											<!-- <input type="hidden" name="page" value="${pageInfo.currentPage}" >  페이지 넘어가버림 -->
-												 <div class="rounded position-relative align-items-left " style="display: inline-block; width: 45em; ">
-													 <input class="form-control bg-transparent" id="searchTitle" name="searchTitle" value="${param.searchTitle}"
-														 type="search" placeholder="원하시는 카드뉴스명을 입력하세요!" aria-label="Search ">
-													 <div align="right">	
-														 <button class="btn bg-transparent border-0  position-absolute top-50 end-0 translate-middle-y "
-															 type="submit"><i class="fas fa-search fs-6 "></i>
-														 </button>
-													 </div>
-												 </div> 
-												 <button type="submit" class="btn btn-sm btn-primary mb-0 align-items-right" style="float:right;">S E A R C H</button>
+											 <div class="rounded position-relative align-items-left " style="display: inline-block; width: 45em; ">
+												 <input class="form-control bg-transparent" id="searchTitle" name="searchTitle" value="${param.searchTitle}" type="search" placeholder="원하시는 카드뉴스명을 입력하세요!" aria-label="Search ">
+												 <div align="right">	
+													 <button class="btn bg-transparent border-0  position-absolute top-50 end-0 translate-middle-y " type="submit"><i class="fas fa-search fs-6 "></i></button>
+												 </div>
+											 </div> 
+											 <button type="submit" class="btn btn-sm btn-primary mb-0 align-items-right" style="float:right;">S E A R C H</button>
 										 </form>
 									 </div>
 								 </div>
 							  </div>
-						<!-- Card item -->
+							<!-- Card item -->
 		                    <div class="row">
 		                    <!-- Card item START -->
 							<c:if test="${!empty list}">
@@ -109,21 +98,16 @@
 										<div class="card mb-4">
 											<!-- Card img -->
 											<div class="card-fold position-relative">
-												<img class="card-img"
-													src="${cardcut.images[0]}"
-													alt="Card image" style="height: 270px;">
+												<img class="card-img" src="${cardcut.images[0]}" alt="Card image" style="height: 270px;">
 											</div>
 											<div class="card-body px-0 pt-3">
 												<h5 class="card-title mice">
-													<a href="${path}/politics/cardCutDetail?cardCutNo=${cardcut.cardCutNo}"
-														class="btn-link text-reset stretched-link fw-bold">${cardcut.title}</a>
+													<a href="${path}/politics/cardCutDetail?cardCutNo=${cardcut.cardCutNo}" class="btn-link text-reset stretched-link fw-bold">${cardcut.title}</a>
 												</h5>
 												<!-- Card info -->
-												<ul
-													class="nav nav-divider align-items-center text-uppercase small">
-													<li class="nav-item"><a href="#"
-														class="nav-link text-reset btn-link"><fmt:formatDate pattern="yyyy. MM. dd. HH:mm" dateStyle="full" value="${cardcut.pubDate}"/></a></li>
-														
+												<ul class="nav nav-divider align-items-center text-uppercase small">
+													<li class="nav-item"><a href="#" class="nav-link text-reset btn-link">
+													<fmt:formatDate pattern="yyyy. MM. dd. HH:mm" dateStyle="full" value="${cardcut.pubDate}"/></a></li>
 												</ul>
 											</div>
 										</div>

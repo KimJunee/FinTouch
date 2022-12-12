@@ -328,7 +328,7 @@
                                         <div class="card-body px-0 pt-2">
                                             <h4 class="card-title mice"><a href="${path}/politics/cardCutDetail?cardCutNo=${cardcutTop.cardCutNo}" class="btn-link text-reset fw-bold">${cardcutTop.title}</a></h4>
                                         </div>
-                                        <div class = "target" style="margin-top: -20px;">
+                                        <div class = "target" style="margin-top: -20px; overflow: hidden;height: 70px;text-overflow: ellipsis">
                                             <p class="card-text "> ${cardcutTop.content}</p>
                                         </div>
                                         <div class="mt-2">
