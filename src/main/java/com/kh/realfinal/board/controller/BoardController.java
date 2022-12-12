@@ -181,8 +181,7 @@ public class BoardController {
 	public String writeBoard(Model model, HttpServletRequest request,
 			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
 			@ModelAttribute Board board,
-			@RequestParam("upfile") MultipartFile upfile
-			) {
+			@RequestParam("upfile") MultipartFile upfile) {
 		board.setWriter_no(loginMember.getUser_no());
 		
 		if(upfile != null && upfile.isEmpty() == false) {
@@ -210,8 +209,7 @@ public class BoardController {
 	@PostMapping("/reply")
 	public String writeReply(Model model, HttpServletRequest request,
 			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
-			@ModelAttribute Reply reply
-			) {
+			@ModelAttribute Reply reply) {
 		log.info("리플 작성 요청");
 		
 		reply.setReply_writer_no(loginMember.getUser_no());
@@ -320,8 +318,7 @@ public class BoardController {
 	@RequestMapping("/delete")
 	public String deleteBoardAction(Model model, HttpServletRequest request,
 			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
-			int boardNo
-			) {
+			int boardNo) {
 		log.debug("글삭제 요청");
 		String rootPath = request.getSession().getServletContext().getRealPath("resources");
 		rootPath = rootPath + "/upload/board"; 
@@ -341,8 +338,7 @@ public class BoardController {
 	@ResponseBody
 	public Map<String,Object> deleteReply(Model model, 
 			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
-			@RequestBody Reply reply
-			) {
+			@RequestBody Reply reply) {
 		Map<String,Object> resultMap = new HashMap<String,Object>();
 		
 		log.debug("댓글 삭제 요청");
@@ -363,8 +359,7 @@ public class BoardController {
 	@ResponseBody
 	public Map<String,Object> editReply(Model model, 
 			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
-			@RequestBody Reply reply
-			) {
+			@RequestBody Reply reply) {
 		
 		Map<String,Object> resultMap = new HashMap<String,Object>();
 		

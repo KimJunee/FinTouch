@@ -79,7 +79,7 @@
                                 <div class="d-flex justify-content-between">
                                     <!-- 최고금리 -->
                                     <div>
-                                        <h4 class="mb-0">4.25%</h4>
+                                        <h4 class="mb-0">4.75%</h4>
                                     </div>
                                     <!-- 금융사 이미지 -->
                                     <ul class="avatar-group mb-0">
@@ -109,26 +109,26 @@
                                             <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar">
                                         </li>
                                     </ul>
-                                    <h4 class="mb-0 ms-3 mice">KB Star 정기예금</h4>
+                                    <h4 class="mb-0 ms-3 mice">NH내가Green초록세상예금</h4>
                                 </div>
                             </div>
 
                             <!-- Card body START -->
                             <div class="card-body">
                                 <ul style="padding-left: 10px;">
-                                    <li>가입대상 : 개인, 개인사업자</li>
-                                    <li>저축기간 : 12개월</li>
+                                    <li>가입대상 : 개인</li>
+                                    <li>저축기간 : 36개월</li>
                                     <li>금리유형 : 단리</li>
                                 </ul>
                                 <div class="d-flex justify-content-between">
                                     <!-- Total post -->
                                     <div>
-                                        <h4 class="mb-0">4.39%</h4>
+                                        <h4 class="mb-0">3.8%</h4>
                                     </div>
                                     <!-- Avatar group -->
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-xl">
-                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/kbBank.png" class="avatar-img" alt="">
+                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/nhBank.png" class="avatar-img" alt="">
                                         </li>
                                     </ul>
                                 </div>
@@ -154,25 +154,25 @@
                                             <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar">
                                         </li>
                                     </ul>
-                                    <h4 class="mb-0 ms-3 mice">IBK탄소제로적금</h4>
+                                    <h4 class="mb-0 ms-3 mice">KB내맘대로적금</h4>
                                 </div>
                             </div>
 
                             <!-- Card body START -->
                             <div class="card-body">
                                 <ul style="padding-left: 10px;">
-                                    <li>가입대상 : 실명의 개인</li>
-                                    <li>저축기간 : 12개월</li>
-                                    <li>금리유형 : 자유적립식, 단리</li>
+                                    <li>가입대상 : 실명의 개인, 개인사업자</li>
+                                    <li>저축기간 : 36개월</li>
+                                    <li>금리유형 : 정액적립식, 단리</li>
                                 </ul>
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <h4 class="mb-0">6.5%</h4>
+                                        <h4 class="mb-0">3.75%</h4>
                                     </div>
 
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-xl">
-                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/ibkBank.png" alt="">
+                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/kbBank.png" alt="">
                                         </li>
                                     </ul>
                                 </div>
@@ -198,25 +198,25 @@
                                             <img class="avatar-img rounded-circle" src="${path}/resources/resources1b/images/02_fin_financePro/BankDetail.jpg" alt="avatar">
                                         </li>
                                     </ul>
-                                    <h4 class="mb-0 ms-3 mice">쏠편한 정기예금</h4>
+                                    <h4 class="mb-0 ms-3 mice">하나의정기예금</h4>
                                 </div>
                             </div>
 
                             <!-- Card body START -->
                             <div class="card-body">
                                 <ul style="padding-left: 10px;">
-                                    <li>가입대상 : 만14세이상 개인고객</li>
-                                    <li>저축기간 : 36개월</li>
+                                    <li>가입대상 : 실명의 개인, 개인사업자</li>
+                                    <li>저축기간 : 12개월</li>
                                     <li>금리유형 : 단리</li>
                                 </ul>
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <h4 class="mb-0">4.65%</h4>
+                                        <h4 class="mb-0">4.9%</h4>
                                     </div>
 
                                     <ul class="avatar-group mb-0">
                                         <li class="avatar avatar-xl">
-                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/shinhanBank.png" alt="">
+                                            <img src="${path}/resources/resources1b/images/02_fin_financePro/kebBank.png" alt="">
                                         </li>
                                     </ul>
                                 </div>
