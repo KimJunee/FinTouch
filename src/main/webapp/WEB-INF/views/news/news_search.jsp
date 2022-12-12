@@ -18,9 +18,7 @@
     <%@include file="/WEB-INF/views/common/header.jsp" %>
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
-
-        <!-- =======================
-    Inner intro START -->
+        <!-- ======================= Inner intro START -->
         <section class="py-4 pb-3">
             <div class="container">
                 <!-- Search -->
@@ -37,11 +35,8 @@
                 </div>
             </div>
         </section>
-        <!-- =======================
-Inner intro END -->
-
-        <!-- =======================
-Main content START -->
+        <!-- ======================= Inner intro END -->
+        <!-- ======================= Main content START -->
         <section class="position-relative pt-0">
             <div class="container" data-sticky-container>
                 <div class="row">
@@ -49,35 +44,34 @@ Main content START -->
                     <div class="col-lg-9">
                         <!-- Card item START -->
                         <c:if test="${!empty list}">
-                        <c:forEach var="search" items="${list}">
-                        <div class="card mb-4">
-                            <div class="row">
-                                <div class="col-md-12 mt-3 mt-md-0">
-                                <c:if test="${search.category == 'economy'}">
-                                    <a href="#" class="badge bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i> Finance</a>
-                                </c:if>
-                                 <c:if test="${search.category == 'politics'}">
-                                    <a href="#" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>politics</a>
-                                </c:if>
-                                <c:if test="${search.category == 'national'}">
-                                    <a href="#" class="badge bg-dark mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>national</a>
-                                </c:if>
-                                <c:if test="${search.category == 'opinion'}">
-                                    <a href="#" class="badge bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>opinion</a>
-                                </c:if>
-                                    <h3><a href="${path}/news/post?newsNo=${search.newsNo}" class="btn-link stretched-link text-reset">${search.title}</a></h3>
-                                    <p>${search.description}</p>
-                                    <!-- Card info -->
-                                    <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                        <li class="nav-item">${search.pubDate}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        </c:forEach>
+	                        <c:forEach var="search" items="${list}">
+		                        <div class="card mb-4">
+		                            <div class="row">
+		                                <div class="col-md-12 mt-3 mt-md-0">
+		                                <c:if test="${search.category == 'economy'}">
+		                                    <a href="#" class="badge bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i> Finance</a>
+		                                </c:if>
+		                                 <c:if test="${search.category == 'politics'}">
+		                                    <a href="#" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>politics</a>
+		                                </c:if>
+		                                <c:if test="${search.category == 'national'}">
+		                                    <a href="#" class="badge bg-dark mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>national</a>
+		                                </c:if>
+		                                <c:if test="${search.category == 'opinion'}">
+		                                    <a href="#" class="badge bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>opinion</a>
+		                                </c:if>
+		                                    <h3><a href="${path}/news/post?newsNo=${search.newsNo}" class="btn-link stretched-link text-reset">${search.title}</a></h3>
+		                                    <p>${search.description}</p>
+		                                    <!-- Card info -->
+		                                    <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+		                                        <li class="nav-item">${search.pubDate}</li>
+		                                    </ul>
+		                                </div>
+		                            </div>
+		                        </div>
+	                        </c:forEach>
                         </c:if>
                         <!-- Card item END -->
-
                         <!-- Pagination START -->
                         <nav class="mb-sm-0 d-flex justify-content-center mt-2" aria-label="navigation">
                         	<ul class="pagination pagination-sm pagination-bordered mb-0">
@@ -100,7 +94,6 @@ Main content START -->
                         <!-- Pagination END -->
                     </div>
                     <!-- Main Post END -->
-
                     <!-- Sidebar START -->
                     <div class="col-lg-3 mt-5 mt-lg-0">
                         <div data-sticky data-margin-top="80" data-sticky-for="767">
@@ -132,36 +125,34 @@ Main content START -->
                                     </a>
                                 </li>
                             </ul>
-
-
                             <div class="row">
                                 <!-- Recent post widget START -->
                                 <div class="col-12 col-sm-6 col-lg-12">
                                     <h4 class="mt-4 mb-3">최근 기사</h4>
                                     <!-- Recent post item -->
                                     <c:forEach var="sideList" items="${sideList}">
-                                    <div class="card mb-3">
-                                        <div class="row g-3">
-                                            <div class="col-4">
-                                                <img class="rounded" src="${sideList.image}" style="height: 65px;" alt="">
-                                            </div>
-                                            <div class="col-8">
-                                                <h6><a href="${path}/news/post?newsNo=${sideList.newsNo}" class="btn-link stretched-link text-reset fw-bold">${sideList.title}</a></h6>
-                                            </div>
-                                        </div>
-                                    </div>
+	                                    <div class="card mb-3">
+	                                        <div class="row g-3">
+	                                            <div class="col-4">
+	                                                <img class="rounded" src="${sideList.image}" style="height: 65px;" alt="">
+	                                            </div>
+	                                            <div class="col-8">
+	                                                <h6><a href="${path}/news/post?newsNo=${sideList.newsNo}" class="btn-link stretched-link text-reset fw-bold">${sideList.title}</a></h6>
+	                                            </div>
+	                                        </div>
+	                                    </div>
                                     </c:forEach>
                                 </div>
                                 <!-- Recent post widget END -->
                                 <h4 class="mt-5 mb-3 mice">인기<a href="#!" class="text-primary">오피니언</a></h4>
                                 <c:if test="${!empty opinionList}">
-                                <c:forEach var="opinion" items="${opinionList}" varStatus="status" step="1" begin="1" end="6">
-                                <div class="d-flex position-relative mb-3">
-                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">0${status.count}</span>
-                                    <h6><a href="${path}/news/post?newsNo=${opinion.newsNo}" class="stretched-link text-reset btn-link">${opinion.title}</a></h6>
-                                    <br>
-                                </div>
-                                </c:forEach>
+	                                <c:forEach var="opinion" items="${opinionList}" varStatus="status" step="1" begin="1" end="6">
+		                                <div class="d-flex position-relative mb-3">
+		                                    <span class="me-3 mt-n1 fa-fw fw-bold fs-3 fc-custom">0${status.count}</span>
+		                                    <h6><a href="${path}/news/post?newsNo=${opinion.newsNo}" class="stretched-link text-reset btn-link">${opinion.title}</a></h6>
+		                                    <br>
+		                                </div>
+	                                </c:forEach>
                                 </c:if>
                             </div>
                         </div>
@@ -171,8 +162,7 @@ Main content START -->
                 <!-- Row end -->
             </div>
         </section>
-        <!-- =======================
-Main content END -->
+        <!-- ======================= Main content END -->
         <script type="text/javascript">
 			function movePage(pageUrl){
 				var searchValue = document.getElementById("searchKeyword");
@@ -180,9 +170,6 @@ Main content END -->
 				location.href = encodeURI(pageUrl);	
 			}			
 		</script>
-
-
-
     </main>
     <!-- **************** MAIN CONTENT END **************** -->
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
